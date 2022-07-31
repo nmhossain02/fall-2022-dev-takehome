@@ -6,7 +6,7 @@ import React from 'react'
  * You will not be judged based on complexity. We also recommend using 
  * multiple components instead of coding everything on this file :)
  * 
- * Have fun! Please reach out to hello@bitsofgood.org or wkim330@gatech.edu if you
+ * Have fun! Please reach out to hello@bitsofgood.org or amz@gatech.edu if you
  * have any questions!
  * 
  * Bits of Good Engineering Team
