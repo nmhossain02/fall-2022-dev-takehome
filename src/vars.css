@@ -1,3 +1,20 @@
 :root {
-    
+    /* Fonts */
+    font-size: 62.5%;
+    --font-size-big: 7.5rem;
+    --font-size-medium: 5rem;
+    --font-size-text: 2.5rem;
+    --font-title: sans-serif;
+    --font-text: sans-serif;
+    /* Layout */
+    --app-width: 65%;
+    --spacing-big: 3rem;
+    --spacing-small: 1rem;
+    --border-width-small: 5px;
+    /* Colors */
+    --color-bg: white;
+    --color-text: black;
+    --color-acc-1: rgb(61, 187, 187);
+    --color-acc-2: rgb(89, 24, 89);
+    --color-sub-bg: rgb(231, 231, 231);
 }

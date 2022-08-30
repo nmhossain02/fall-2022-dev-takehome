@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import Tag, { TagType } from "./Tag"
 import TagAdder from "./TagAdder"
 import { TodoType } from "./TodoList"
+import "./TodoAdder.css"
 
 export default function TodoAdder({addTodo} : {addTodo: any}) {
     const titleInput = useRef<any>()
@@ -35,10 +36,21 @@ export default function TodoAdder({addTodo} : {addTodo: any}) {
         addTodo(newTodo)
     }
     return <>
-        <input type="text" name="" id="" ref={titleInput} />
-        <input type="date" name="" id="" ref={dateInput} />
-        <TagAdder addTag={AddTag}/>
-        {tags.map( (tag, index) => <Tag useTag={() => [tag, SetTagMaker(index), DeleteTagMaker(index)]} mutable={true} /> )}
-        <button onClick={ClickHandler}>Add Todo</button>
+        <div className="title-input-wrapper">
+            <input type="text" name="" id="" ref={titleInput} placeholder="Enter Task..."/>
+            <button onClick={ClickHandler}>
+            <i className="fa-solid fa-circle-plus"></i>
+            </button>
+        </div>
+        <div className="bottom-input-row">
+            <div className="date-input-wrapper">
+                <div className="date-input-label">Due date:</div>
+                <input type="date" name="" id="" ref={dateInput} />
+            </div>
+            <TagAdder addTag={AddTag}/>
+        </div>
+        <div className="tag-input-wrapper">
+            {tags.map( (tag, index) => <Tag useTag={() => [tag, SetTagMaker(index), DeleteTagMaker(index)]} mutable={true} /> )}
+        </div>
     </>
 }

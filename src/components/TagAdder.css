@@ -1,0 +1,27 @@
+@import "../vars.css";
+
+.TagAdder {
+    color: red;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: var(--spacing-small);
+}
+
+.TagAdder > input {
+    padding: var(--spacing-small);
+    border-top-left-radius: var(--spacing-small);
+    border-bottom-left-radius: var(--spacing-small);
+}
+
+.TagAdder > select, .TagAdder > button {
+    padding: var(--spacing-small);
+}
+
+.TagAdder > select {
+    font-family: 'FontAwesome';
+}
+
+.TagAdder > button {
+    border-top-right-radius: var(--spacing-small);
+    border-bottom-right-radius: var(--spacing-small);
+}

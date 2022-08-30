@@ -1,0 +1,67 @@
+@import "../vars.css";
+
+.SortingOptions {
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    margin: var(--spacing-small) 0;
+}
+
+.SortingOptions > * {
+    margin: 0 var(--spacing-small);
+}
+
+.tag-filter-input-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: var(--spacing-small) 0;
+}
+
+.tag-filter-tag-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tag-filter-textbox-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: var(--spacing-small) 0;
+}
+
+.tag-filter-textbox-wrapper > input {
+    flex: 1;
+    padding: var(--spacing-small);
+    border-top-left-radius: var(--spacing-small);
+    border-bottom-left-radius: var(--spacing-small);
+}
+
+.tag-filter-textbox-wrapper > button {
+    border-top-right-radius: var(--spacing-small);
+    border-bottom-right-radius: var(--spacing-small);
+    padding: var(--spacing-small);
+}
+
+.option-btn {
+    padding: var(--spacing-small);
+    border-radius: 9999px;
+}
+
+.option-btn.selected {
+    background-color: var(--color-text);
+    color: var(--color-sub-bg);
+}
+
+.color-option {
+    opacity: 0.25;
+    border-width: 0;
+    border-style: solid;
+    padding: var(--spacing-small);
+    border-radius: 9999px;
+}
+
+.color-option.selected {
+    padding: calc(var(--spacing-small) - var(--border-width-small));
+    opacity: 1;
+    border-width: var(--border-width-small); 
+}

@@ -18,6 +18,7 @@ import TodoAdder from "./TodoAdder"
 import { TagType } from "./Tag"
 import TodoItem from "./TodoItem"
 import SortingOptions, { SortingOptionsType } from "./SortingOptions"
+import "./TodoList.css"
 
 // Here's a baseline todo item type. 
 // Feel free to extend or create your own interface!
@@ -85,6 +86,7 @@ export default function TodoList() {
   return <>
     <h1>Todo List title</h1>
     <TodoAdder addTodo={AddTodo}/>
+    <div className="options-label">Sort your tasks:</div>
     <SortingOptions useOptions={() => [options, setOptions] } />
     {OrderTodos().map((todo, index) => <TodoItem useTodo={ () => [todo, SetTodoMaker(index), DeleteTodoMaker(index)] } />)}
   </>

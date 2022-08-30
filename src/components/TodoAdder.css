@@ -1,0 +1,52 @@
+@import "../vars.css";
+
+.title-input-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    font-size: 100px;
+    /* margin: var(--spacing-small) 0; */
+}
+
+.title-input-wrapper > input {
+    flex: 1;
+    font-size: var(--font-size-text);
+    border-top-left-radius: var(--spacing-small);
+    border-bottom-left-radius: var(--spacing-small);
+}
+
+.title-input-wrapper > * {
+    padding: var(--spacing-small);
+}
+
+.title-input-wrapper > button {
+    border-top-right-radius: var(--spacing-small);
+    border-bottom-right-radius: var(--spacing-small);
+}
+
+.bottom-input-row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+}
+
+.date-input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: var(--spacing-small) 0;
+}
+
+.date-input-wrapper > * {
+    padding: var(--spacing-small);
+}
+
+.date-input-wrapper > input {
+    border-radius: var(--spacing-small);
+}
+
+.tag-input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+}

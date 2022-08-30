@@ -1,3 +1,6 @@
 export default function({checked}:{checked: boolean}) {
-    return checked ? <input type="checkbox" checked/> : <input type="checkbox" style={{pointerEvents: "none"}}/>
+    return checked ?
+        <input className="Checkbox checked" type="checkbox" checked/>
+    :
+        <input className="Checkbox" type="checkbox" style={{pointerEvents: "none"}}/>
 }

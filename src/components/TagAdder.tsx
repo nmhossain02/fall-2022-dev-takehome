@@ -1,10 +1,12 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import COLORS from "../colors"
 import { TagType } from "./Tag"
+import "./TagAdder.css"
 
 export default function TagAdder( { addTag }: { addTag: any } ) {
     const titleInput = useRef<any>()
     const colorInput = useRef<any>()
+    const [currentColor, setColor] = useState<string>()
 
     const ClickHandler = () => {
         const newTag: TagType = {
@@ -13,11 +15,26 @@ export default function TagAdder( { addTag }: { addTag: any } ) {
         }
         addTag(newTag)
     }
-    return <>
-        <input type="text" name="" id="" ref={titleInput} />
-        <select name="" id="" ref={colorInput}>
-            {COLORS.map((color) => <option value={color} style={{color: color}}>O</option>)}
+    useEffect(() => {
+        setColor(colorInput.current.value)
+    }, [])
+    return <div className="TagAdder">
+        <input type="text" name="" id="" ref={titleInput} placeholder="Add tags..."/>
+        <select
+            name=""
+            id=""
+            ref={colorInput}
+            style={{color: currentColor}}
+            onChange={() => {setColor(colorInput.current.value)}}
+        >
+            {COLORS.map((color) => {
+                return <option value={color} style={{color: color}}>
+                    &#xf043;
+                </option>
+            })}
         </select>
-        <button onClick={ClickHandler}>Add Tag</button>
-    </>
+        <button onClick={ClickHandler}>
+            <i className="fa-solid fa-tag"></i>
+        </button>
+    </div>
 }

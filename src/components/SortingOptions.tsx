@@ -1,6 +1,7 @@
 import { useRef } from "react"
 import COLORS from "../colors"
 import Tag, { TagType } from "./Tag"
+import "./SortingOptions.css"
 
 export type SortingOptionsType = {
     sortAscending: boolean,
@@ -12,6 +13,7 @@ export type SortingOptionsType = {
 export default function SortingOptions( { useOptions }: any ) {
     const tagNameInput = useRef<any>()
     const [options, setOptions] = useOptions()
+    
     const AddTagHandler = () => {
         const newTagName = tagNameInput.current.value
         const newOptions = {...options}
@@ -28,11 +30,12 @@ export default function SortingOptions( { useOptions }: any ) {
 
     const TagFilterMapper = (tagName: string) => {
         const tag: TagType = {
-            title: tagName
+            title: tagName,
+            color: getComputedStyle(document.body).getPropertyValue("--color-sub-bg")
         }
         const setTag = () => {}
         const deleteTag = DeleteTagMaker(tagName)
-        return <Tag useTag={() => [tag, setTag, deleteTag]}></Tag>
+        return <Tag useTag={ () => [tag, setTag, deleteTag] } mutable={true}></Tag>
     }
     
     const ColorHandler = (color: string) => () => {
@@ -56,28 +59,28 @@ export default function SortingOptions( { useOptions }: any ) {
         newOptions.sortCompletion = !options.sortCompletion
         setOptions(newOptions)
     }
-    return <>
-        <button onClick={SortAscendingHandler}>
-            {options.sortAscending ? 
-                <div><b>Sort Ascending</b></div>
-            :
-                <div>Sort Ascending</div>
-            }
+    return <div className="SortingOptions">
+        <button className={"option-btn " + (options.sortAscending ? "selected" : "")} onClick={SortAscendingHandler}>
+            Date <i className="fa-solid fa-arrow-up"></i>
         </button>
-        <button onClick={SortCompletionHandler}>
-            {options.sortCompletion ? 
-                <div><b>Sort by Completion</b></div>
-            :
-                <div>Sort Completion</div>
-            }
+        <button className={"option-btn " + (options.sortCompletion ? "selected" : "")}onClick={SortCompletionHandler}>
+            Not Done <i className="fa-solid fa-clipboard-list"></i>
         </button>
         {COLORS.map(color => {
-            return <div onClick={ColorHandler(color)}>
-                {options.colorFilters.has(color) ? <div><b>{color}</b></div> : <div>color</div>}
+            return <div style={{color: color, borderColor: color}}className={"color-option " + (options.colorFilters.has(color) ? "selected" : "")} onClick={ColorHandler(color)}>
+                <i className="fa-solid fa-tag"></i>
             </div>
         })}
-        <input type="text" name="" id="" ref={tagNameInput}/>
-        <button onClick={AddTagHandler}>Add Tag Filter</button>
-        {[...options.tagFilters].map(TagFilterMapper)}
-    </>
+        <div className="tag-filter-input-wrapper">
+            <div className="tag-filter-textbox-wrapper">
+                <input type="text" name="" id="" ref={tagNameInput} placeholder="Filter by tags..."/>
+                <button onClick={AddTagHandler}>
+                    <i className="fa-solid fa-filter"></i>
+                </button>
+            </div>
+            <div className="tag-filter-tag-wrapper">
+                {[...options.tagFilters].map(TagFilterMapper)}
+            </div>
+        </div>
+    </div>
 }

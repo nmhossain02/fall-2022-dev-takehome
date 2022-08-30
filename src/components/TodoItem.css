@@ -1,0 +1,30 @@
+@import "../vars.css";
+
+.TodoItem {
+    border-radius: var(--spacing-small);
+    background-color: var(--color-sub-bg);
+    margin: var(--spacing-small);
+    padding: var(--spacing-small) var(--spacing-big);
+}
+
+.TodoItem > .top-row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.TodoItem > .top-row > .Checkbox {
+    width: var(--font-size-medium);
+    height: var(--font-size-medium);
+    margin-right: var(--spacing-big);
+}
+
+.TodoItem > .top-row > h3 {
+    font-size: var(--font-size-medium);
+    flex: 1;
+}
+
+.TodoItem > .tag-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
