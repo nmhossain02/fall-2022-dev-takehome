@@ -26,14 +26,29 @@ export default function TodoAdder({addTodo} : {addTodo: any}) {
     }
 
     const ClickHandler = () => {
-        const newTodo: TodoType = {
-            title: titleInput.current.value,
-            dueDate: dateInput.current.value ? new Date(dateInput.current.value) : undefined, // holy poop, remember to collect data as the correct data type
-            completed: false,
-            tagList: tags
+        try {
+            if (titleInput.current.value === '') {
+                throw 1
+            }
+            if (!dateInput.current.value) {
+                throw 2
+            }
+            const newTodo: TodoType = {
+                title: titleInput.current.value,
+                dueDate: dateInput.current.value ? new Date(dateInput.current.value) : undefined, // holy poop, remember to collect data as the correct data type
+                completed: false,
+                tagList: tags
+            }
+            titleInput.current.value = ""
+            addTodo(newTodo)
+        } catch (e) {
+            if (e === 1) {
+                alert("Please give your task a name!")
+            }
+            else if (e === 2) {
+                alert("Please give your task a valid due date")
+            }
         }
-        console.log(dateInput.current.value)
-        addTodo(newTodo)
     }
     return <>
         <div className="title-input-wrapper">

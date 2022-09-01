@@ -84,9 +84,9 @@ export default function TodoList() {
     return reordered
   }
   return <>
-    <h1>Todo List title</h1>
+    <h1>Todo List Maker</h1>
     <TodoAdder addTodo={AddTodo}/>
-    <div className="options-label">Sort your tasks:</div>
+    <div className="options-label">Sort and filter:</div>
     <SortingOptions useOptions={() => [options, setOptions] } />
     {OrderTodos().map((todo, index) => <TodoItem useTodo={ () => [todo, SetTodoMaker(index), DeleteTodoMaker(index)] } />)}
   </>

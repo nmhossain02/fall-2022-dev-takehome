@@ -1,10 +1,10 @@
 const COLORS: string[] = [
-    "#fcba03",
-    "#3903fc",
+    "#EE7B30",
+    "#44CF6C",
     "#7f03fc",
-    "#fc0366",
-    "#03fcdf",
-    "#fc0330"
+    "#A04668",
+    "#5386E4",
+    "#CB3316"
 ]
 
 export default COLORS

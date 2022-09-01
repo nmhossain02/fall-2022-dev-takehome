@@ -17,7 +17,7 @@ export default function TodoItem({ useTodo }: { useTodo: any }) {
     return <div className="TodoItem" onClick={clickHandler}>
         <div className="top-row">
             <Checkbox checked={todoItem.completed}/>
-            <h3>{todoItem.title}</h3>
+            <h3 style={{textDecoration: todoItem.completed ? "line-through" : "none"}}>{todoItem.title}</h3>
             <p>{todoItem.dueDate?.toLocaleDateString()}</p>
         </div>
         <div className="tag-wrapper">

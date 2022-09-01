@@ -1,4 +1,5 @@
 :root {
+    transition: 0.25s all ease-in-out;
     /* Fonts */
     font-size: 62.5%;
     --font-size-big: 7.5rem;
@@ -17,4 +18,14 @@
     --color-acc-1: rgb(61, 187, 187);
     --color-acc-2: rgb(89, 24, 89);
     --color-sub-bg: rgb(231, 231, 231);
+}
+
+@media (max-width: 700px) {
+    :root {
+        --app-width: 80%;
+        --font-size-big: 6rem;
+        --font-size-medium: 4rem;
+        --font-size-text: 2rem;
+        --spacing-small: 0.75rem;
+    }
 }

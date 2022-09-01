@@ -9,11 +9,21 @@ export default function TagAdder( { addTag }: { addTag: any } ) {
     const [currentColor, setColor] = useState<string>()
 
     const ClickHandler = () => {
-        const newTag: TagType = {
-            title: titleInput.current.value,
-            color: colorInput.current.value
+        try {
+            if (titleInput.current.value === '') {
+                throw 1
+            }
+            const newTag: TagType = {
+                title: titleInput.current.value,
+                color: colorInput.current.value
+            }
+            titleInput.current.value = ""
+            addTag(newTag)
+        } catch (e) {
+            if (e === 1) {
+                alert("Please give your tag valid name")
+            }
         }
-        addTag(newTag)
     }
     useEffect(() => {
         setColor(colorInput.current.value)
